@@ -17,7 +17,7 @@ var ajaxCall = (key, url, prompt) => {
       },
       crossDomain: true,
       success: function (response, status, xhr) {
-        resolve({ JSON.parse(response), status, xhr });
+        resolve({ response, status, xhr });
       },
       error: function (xhr, status, error) {
         const err = new Error('xhr error');
