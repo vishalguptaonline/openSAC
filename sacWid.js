@@ -10,14 +10,14 @@ var ajaxCall = (key, url, prompt) => {
         max_tokens: 1024,
         n: 1,
         temperature: 0.5,
-      }),
+      }),      
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${key}`,
       },
       crossDomain: true,
       success: function (response, status, xhr) {
-        resolve({ response, status, xhr });
+        resolve({ JSON.parse(response), status, xhr });
       },
       error: function (xhr, status, error) {
         const err = new Error('xhr error');
